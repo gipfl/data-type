@@ -64,6 +64,7 @@ class SetOfSettings implements JsonSerialization
         return new Settings();
     }
 
+    #[\ReturnTypeWillChange]
     public function jsonSerialize()
     {
         ksort($this->sections);

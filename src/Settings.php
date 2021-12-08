@@ -88,6 +88,7 @@ class Settings implements JsonSerialization
         return array_key_exists($name, $this->settings);
     }
 
+    #[\ReturnTypeWillChange]
     public function jsonSerialize()
     {
         ksort($this->settings);
