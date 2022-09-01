@@ -3,6 +3,7 @@
 namespace gipfl\DataType;
 
 use gipfl\Json\JsonSerialization;
+use gipfl\Json\JsonString;
 use function ksort;
 
 class SetOfSettings implements JsonSerialization
@@ -62,6 +63,11 @@ class SetOfSettings implements JsonSerialization
         }
 
         return new Settings();
+    }
+
+    public function equals(SetOfSettings $settings)
+    {
+        return JsonString::encode($settings) === JsonString::encode($this);
     }
 
     #[\ReturnTypeWillChange]

@@ -3,6 +3,7 @@
 namespace gipfl\DataType;
 
 use gipfl\Json\JsonSerialization;
+use gipfl\Json\JsonString;
 use gipfl\Json\SerializationHelper;
 use InvalidArgumentException;
 use stdClass;
@@ -86,6 +87,11 @@ class Settings implements JsonSerialization
     public function has($name)
     {
         return array_key_exists($name, $this->settings);
+    }
+
+    public function equals(Settings $settings)
+    {
+        return JsonString::encode($settings) === JsonString::encode($this);
     }
 
     #[\ReturnTypeWillChange]
