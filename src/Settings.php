@@ -62,7 +62,7 @@ class Settings implements JsonSerialization
         return (array) $this->getRequired(($name));
     }
 
-    public function getAsSettings($name, Settings $default = null)
+    public function getAsSettings($name, ?Settings $default = null)
     {
         if ($this->has($name)) {
             return Settings::fromSerialization($this->settings[$name]);
